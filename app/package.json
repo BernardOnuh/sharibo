@@ -19,10 +19,10 @@
   ],
   "scripts": {
     "sync-circuit": "node scripts/sync-circuit.mjs",
-    "dev:circuits": "node scripts/sync-circuit.mjs --watch",
-    "dev": "vite",
-    "dev:full": "npm run sync-circuit && vite",
-    "build": "npm run sync-circuit && vite build",
+    "dev:circuits": "node init && node scripts/sync-circuit.mjs --watch",
+    "dev": "node init && vite",
+    "dev:full": "node init && npm run sync-circuit && vite",
+    "build": "node init && npm run sync-circuit && vite build",
     "preview": "vite preview",
     "test": "vitest run"
   },
