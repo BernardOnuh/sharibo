@@ -10,7 +10,7 @@
     "app"
   ],
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
+    "build": "node init && npm run build --workspaces --if-present",
     "e2e": "npm run e2e --workspace=scripts",
     "test": "npm test --workspaces --if-present",
     "lint": "eslint .",
