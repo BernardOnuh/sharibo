@@ -10,14 +10,15 @@
     "app"
   ],
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
+    "build": "node init && npm run build --workspaces --if-present",
     "e2e": "npm run e2e --workspace=scripts",
     "test": "npm test --workspaces --if-present",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:dead": "knip",
     "typecheck": "npm run typecheck --workspace=packages/client",
-    "check:stellar-sdk": "node scripts/check-stellar-sdk-version.mjs"
+    "check:stellar-sdk": "node scripts/maintenance/check-stellar-sdk-version.mjs",
+    "clean": "node scripts/maintenance/clean.mjs"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.0.0",
