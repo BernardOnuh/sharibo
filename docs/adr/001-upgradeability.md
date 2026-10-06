@@ -4,6 +4,12 @@
 - **Date:** 2026-07-27
 - **Context:** Pre-mainnet decision record. Retrofitting either upgradeability or admin rotation onto live circles is much harder than deciding now.
 
+> **Update (2026-10-06, #552):** Admin rotation is no longer deferred — a two-step
+> `propose_admin`/`accept_admin` transfer now exists in the contract. The operational
+> custody model for `Circle.admin` and `fee_recipient` is documented separately in
+> [`docs/key-custody.md`](../key-custody.md). This ADR's immutability decision stands;
+> only the "do not add admin rotation yet" framing below is superseded.
+
 ## Context
 
 The Sharibo contract today has:
@@ -43,10 +49,19 @@ So `Circle.admin` is **not load-bearing for fund or claim**. It is recorded at c
 
 That is worth stating loudly: **admin key rotation is not an urgent safety feature for the current code**, because the admin key cannot move funds or alter circle rules post-creation. Rotation only becomes load-bearing if we later add admin-gated operations.
 
+> Note: admin rotation has shipped since this was written — see
+> [`docs/key-custody.md`](../key-custody.md) for the current custody and rotation runbook.
+
 ## Decision
 
 1. **Stay immutable on testnet and for the first production deployment** of the verifier contract. Prefer migration over an upgrade key that can steal pots. If a later version needs upgradeability, it should be a new contract with an explicit, time-locked, multi-party upgrade authority — not bolted onto circles that already hold funds under an implicit "we'll add upgrades later."
 2. **Do not add admin rotation yet.** Document that `admin` is currently ceremonial post-creation. If product needs (pause, VK rotate, emergency withdraw) appear, design those entry points and _then_ decide whether admin is a single key, a multisig, or a DAO — and add rotation as part of that design, not as a standalone patch.
+
+   > Superseded (2026-10-06): two-step admin rotation (`propose_admin`/`accept_admin`)
+   > shipped in #257. Operationally the admin remains **not load-bearing for funds** —
+   > it can cancel a circle and transfer adminship, nothing more — so holder custody
+   > follows [`docs/key-custody.md`](../key-custody.md), designed to be cheap to keep
+   > honest: a multisig account with a public rotate/cancel path, not a single master key.
 3. **If admin-gated ops are added**, treat admin as load-bearing: require rotation, clear auth checks on every privileged path, and update this ADR.
 
 ## Consequences
