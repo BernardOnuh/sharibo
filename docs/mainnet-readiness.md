@@ -20,14 +20,14 @@ fiction. Every item links to the issue tracking it.
 
 ## 3. Operational
 
-- [ ] **Monitoring/alerting** on the deployed mainnet contract(s) — dormant circles, unusual claim patterns, RPC health. Tracking issue: **#549**.
-- [ ] **Incident response plan** — who can act if a bug is found or a key is suspected compromised, and what "act" means given the contract has no upgrade path. Tracking issue: **#550**.
-- [ ] **Key custody.** Decide and document how mainnet admin key(s) are held and rotated. Tracking issue: **#551**.
+- [ ] **Monitoring/alerting** on the deployed mainnet contract(s) — dormant circles, unusual claim patterns, RPC health. Tracking issue: **#550**.
+- [ ] **Incident response plan** — who can act if a bug is found or a key is suspected compromised, and what "act" means given the contract has no upgrade path. Tracking issue: **#551**.
+- [ ] **Key custody.** How `Circle.admin` and `fee_recipient` are held, rotated, and chosen before circle creation — runbook and loss scenarios: [docs/key-custody.md](key-custody.md). Tracking issue: **#552**.
 - [ ] **Dependency update cadence and lockfile policy** documented (#338) — supply-chain hygiene ahead of holding real funds.
 
 ## 4. Product
 
-- [ ] **Enforced turn ordering.** [ADR 002](adr/002-multi-round-turn-ordering.md) documents that today the same identity can claim every round. Enforcement implementation tracking issue: **#552**.
+- [ ] **Enforced turn ordering.** [ADR 002](adr/002-multi-round-turn-ordering.md) documents that today the same identity can claim every round. Enforcement implementation tracking issue: **#549**.
 - [ ] **A way out of a stuck circle beyond admin-only cancel.** `expire_round` shipped (#258) but has no client SDK or UI surface (#485). A fuller dispute-handling path (contested claims, partial rounds) beyond "cancel and refund" — tracking issue: **#553**.
 
 ## Done
@@ -52,7 +52,7 @@ fiction. Every item links to the issue tracking it.
 These are closed issues / existing documents this checklist builds on:
 
 - [`docs/threat-model.md`](threat-model.md) — the structured security-properties document (#23).
-- [`docs/adr/001-upgradeability.md`](adr/001-upgradeability.md) — decision to stay immutable, admin rotation deferred (#92).
+- [`docs/adr/001-upgradeability.md`](adr/001-upgradeability.md) — decision to stay immutable; admin rotation now shipped and documented in [docs/key-custody.md](key-custody.md) (#92 → #257/#552).
 - [`docs/adr/002-multi-round-turn-ordering.md`](adr/002-multi-round-turn-ordering.md) — turn-ordering **design** (#91).
 - [`docs/adr/004-storage-archival.md`](adr/004-storage-archival.md) — storage TTL/archival analysis (#340).
 - A multi-party trusted-setup **ceremony plan** was documented (#74).

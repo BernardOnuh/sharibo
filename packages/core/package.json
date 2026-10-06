@@ -28,7 +28,7 @@
     "primitives"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "node init && tsc",
     "prepare": "npm run build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

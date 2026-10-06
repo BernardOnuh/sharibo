@@ -34,4 +34,5 @@ Please note the following known limitations which are **not** considered qualify
 - **Deployment is testnet-only:** The current deployment operates on the Stellar testnet. No real funds are at risk.
 - **Trusted setup is currently single-party:** The trusted setup for the Groth16 circuit was run by a single party. This is a known limitation for the current development phase. A multi-party ceremony is **planned but not executed** — runbook: [docs/ceremony.md](docs/ceremony.md) (#546).
 - **Not audited:** No third-party security audit of the circuit or contract has been completed. Audit-readiness index: [docs/audit/](docs/audit/README.md) (#547).
-- For additional context, please refer to the "Honest limitations" section in the [README](README.md) and the [mainnet readiness checklist](docs/roadmap.md).
+- **Key custody is our decision, not the contract's:** `Circle.admin` and `fee_recipient` are chosen by the circle creator at `create_circle`. Custody, rotation, and pre-creation responsibilities for a real-funds deployment are documented in [docs/key-custody.md](docs/key-custody.md) (#552).
+- For additional context, please refer to the "Honest limitations" section in the [README](README.md) and the [mainnet readiness checklist](docs/mainnet-readiness.md).

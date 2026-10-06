@@ -40,6 +40,7 @@ an archive is allowed to contain stale claims.
 | [`ceremony.md`](ceremony.md)                       | **Planned** multi-party trusted-setup runbook (#546) — not executed                                                                                       |
 | [`poseidon-provenance.md`](poseidon-provenance.md) | Poseidon-over-BLS12-381 constants: packages, verification status, risks                                                                                   |
 | [`mainnet-readiness.md`](mainnet-readiness.md)     | Mainnet readiness checklist (no target dates)                                                                                                             |
+| [`key-custody.md`](key-custody.md)                 | Key custody for circle admins and `fee_recipient`: holder, storage, threshold, rotation, loss scenarios (#552)                                             |
 | [`threat-model.md`](threat-model.md)               | Assets, adversaries, and which code enforces each property                                                                                                |
 | [`troubleshooting.md`](troubleshooting.md)         | Common setup and proof-verification failures                                                                                                              |
 | [`observability.md`](observability.md)             | SDK `SdkEvent` taxonomy (`onEvent`) for retries, proofs, artifacts, transactions                                                                          |
@@ -53,7 +54,7 @@ an archive is allowed to contain stale claims.
 | [`adr/001-upgradeability.md`](adr/001-upgradeability.md)                       | ADR 001: decision to keep the contract immutable and defer admin rotation                                  |
 | [`adr/002-multi-round-turn-ordering.md`](adr/002-multi-round-turn-ordering.md) | ADR 002: multi-round turn ordering and cycle-scoped nullifier behavior                                     |
 | [`adr/003-client-boundary.md`](adr/003-client-boundary.md)                     | ADR 003: app ↔ SDK ↔ contract boundary and the current free-function design                                |
-| [`adr/003-protocol-fees.md`](adr/003-protocol-fees.md)                         | ADR 003 (fees): protocol fee on claim                                                                      |
+| [`adr/007-protocol-fees.md`](adr/007-protocol-fees.md)                         | ADR 007 (fees): protocol fee on claim                                                                      |
 | [`adr/004-storage-archival.md`](adr/004-storage-archival.md)                   | ADR 004: per-key storage TTL/archival analysis, including the nullifier double-claim fence's residual risk |
 | [`adr/005-bls12-381-curve-choice.md`](adr/005-bls12-381-curve-choice.md)       | ADR 005: BLS12-381 instead of BN254 (CPU budget)                                                           |
 | [`adr/006-recipient-binding.md`](adr/006-recipient-binding.md)                 | ADR 006: `recipientHash` public input for payout binding                                                   |

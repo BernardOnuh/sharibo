@@ -1,6 +1,4 @@
 # secrets
-.env
-.env.*
 !.env.example
 *.pem
 
@@ -50,3 +48,4 @@ packages/client/reports/
 issue.md
 TODO.md
 skills-lock.json
+config.bat
